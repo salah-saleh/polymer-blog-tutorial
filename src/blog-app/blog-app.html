@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="./blog-post.html">
 
 <dom-module id="blog-app">
   <template>
@@ -7,20 +8,13 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    <blog-post></blog-post>
   </template>
 
   <script>
     Polymer({
 
       is: 'blog-app',
-
-      properties: {
-        prop1: {
-          type: String,
-          value: 'blog-app',
-        },
-      },
 
     });
   </script>

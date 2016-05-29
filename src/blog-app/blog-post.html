@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/marked-element/marked-element.html">
+
+<dom-module id="blog-post">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <marked-element markdown="`Markdown` is _awesome_!">
+      <div class="markdown-html"></div>
+    </marked-element>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'blog-post'
+
+    });
+  </script>
+</dom-module>
