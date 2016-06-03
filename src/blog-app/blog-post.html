@@ -9,7 +9,7 @@
       }
     </style>
 
-    <marked-element markdown="`Markdown` is _awesome_!">
+    <marked-element markdown="{{post}}">
       <div class="markdown-html"></div>
     </marked-element>
 
@@ -18,7 +18,15 @@
   <script>
     Polymer({
 
-      is: 'blog-post'
+      is: 'blog-post',
+
+      properties: {
+        post: {
+          type: Object,
+          value: {},
+          notify: true
+        }
+      }
 
     });
   </script>
