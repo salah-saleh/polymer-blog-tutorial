@@ -1,21 +1,25 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="./blog-post.html">
 
 <dom-module id="blog-app">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <blog-post post="`Markdown` is _awesome_!"></blog-post>
-  </template>
+    <template>
+        <style>
+             :host {
+                display: block;
+            }
+        </style>
 
-  <script>
-    Polymer({
+        <iron-ajax auto url="http://localhost:8080/data/p1.md" handle-as="text" last-response="{{content}}" debounce-duration="300"
+            loading="{{loading}}"></iron-ajax>
 
-      is: 'blog-app'
+        <div hidden$="{{!loading}}">Loading ...</div>
+        <blog-post post="{{content}}"></blog-post>
+    </template>
 
-    });
-  </script>
+    <script>
+        Polymer({
+            is: 'blog-app'
+        });
+    </script>
 </dom-module>

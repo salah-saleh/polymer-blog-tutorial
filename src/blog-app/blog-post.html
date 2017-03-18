@@ -4,15 +4,14 @@
 <dom-module id="blog-post">
   <template>
     <style>
-      :host {
+       :host {
         display: block;
       }
     </style>
 
-    <marked-element markdown="{{post}}">
+    <marked-element markdown="[[post]]">
       <div class="markdown-html"></div>
     </marked-element>
-
   </template>
 
   <script>
@@ -22,12 +21,11 @@
 
       properties: {
         post: {
-          type: Object,
-          value: {},
-          notify: true
+          type: String,
+          value: null,
+          notify: false
         }
       }
-
     });
   </script>
 </dom-module>
