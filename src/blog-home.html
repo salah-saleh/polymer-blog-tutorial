@@ -1,0 +1,44 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<dom-module id="blog-home">
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+    </style>
+
+    <iron-ajax auto url="/data/meta.json" handle-as="json" last-response="{{posts}}" debounce-duration="300"
+      loading="{{loading}}">
+    </iron-ajax>
+    <div>This is the Home Page. List Blog Posts Meta Info Here.</div>
+    <div hidden$="[[!loading]]">Loading ...</div>
+    <template is="dom-repeat" items="[[posts]]" as="post">
+      <div><a href$="[[_url(post.name)]]">[[post.name]]</a></div>
+      <div>[[post.excerpt]]</div>
+      <div>[[post.date]]</div>
+      <div><span>Categories: </span><span>[[post.categories]]</span></div>
+      <div>--------------------------------------------</div>
+    </template>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+      Polymer({
+        is: 'blog-home',
+        properties: {
+          posts: {
+            type: Array
+          },
+          loading: {
+            type: Boolean
+          }
+        },
+        _url: function(name) {
+          return ' #/' + name;
+        }
+      });
+    })();
+  </script>
+</dom-module>

@@ -1,0 +1,11 @@
+[{
+  "name": "Post-1",
+  "excerpt": "This the excerpt of post 1",
+  "date": "2017-04-09",
+  "categories": ["foo", "goo"]
+}, {
+  "name": "Post-2",
+  "excerpt": "This the excerpt of post 2",
+  "date": "2017-04-10",
+  "categories": ["foo"]
+}]
