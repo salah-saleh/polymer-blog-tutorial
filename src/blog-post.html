@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="./disqus-comments.html">
 
 <dom-module id="blog-post">
   <template>
@@ -9,13 +10,13 @@
         display: block;
       }
     </style>
-    <iron-ajax id="ajax" auto url="[[_post(page)]]" handle-as="text" last-response="{{post}}" debounce-duration="30"
-      loading="{{loading}}"></iron-ajax>
+    <iron-ajax id="ajax" auto url="[[_post(page)]]" handle-as="text" last-response="{{post}}" debounce-duration="30" loading="{{loading}}"></iron-ajax>
     <div hidden$="[[!loading]]">Loading ...</div>
 
     <marked-element hidden$="[[loading]]" markdown="[[post]]">
       <div id="md" class="markdown-html"></div>
     </marked-element>
+    <disqus-comments shortname="blog-poly" page="[[page]]"></disqus-comments>
   </template>
 
   <script>
@@ -36,7 +37,7 @@
         },
         _post: function (page) {
           // do nothing if page is not initialized
-          if(!page)
+          if (!page || (page == 'home'))
             return;
           else
             return ' /data/' + page + '.md';

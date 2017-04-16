@@ -1,0 +1,61 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="disqus-comments">
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+    </style>
+    <div id="disqus_thread"></div>
+  </template>
+  <script>
+    (function () {
+      'use strict';
+      Polymer({
+        is: 'disqus-comments',
+        properties: {
+          shortname: {
+            type: String
+          },
+          page: {
+            type: String,
+            observer: '_resetDisqusOnPageChanged'
+          },
+        },
+        attached: function () {
+          if (!this.shortname) {
+            return console.error('Required: Please provide a Disqus shortname.');
+          }
+          var dsq = document.createElement('script');
+          var http = (this.https) ? 'https' : 'http';
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = http + '://' + this.shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+            dsq);
+        },
+        _resetDisqusOnPageChanged: function () {
+          var self = this;
+          if (typeof DISQUS === 'undefined') {
+            setTimeout(function () {
+              self._resetDisqusOnPageChanged();
+            }, 300); // wait until disqus is initialized
+          } else {
+            try {
+              DISQUS.reset({
+                reload: true,
+                config: function () {
+                  this.page.url = window.location.href.replace('#/', ''); // disqus doesn't recognize hash
+                  this.page.title = window.location.hash;
+                }
+              });
+            } catch (e) {
+              console.error(e);
+            }
+          }
+        }
+      });
+    })();
+  </script>
+</dom-module>
