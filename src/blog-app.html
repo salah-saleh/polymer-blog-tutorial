@@ -6,49 +6,50 @@
 <link rel="import" href="./blog-home.html">
 
 <dom-module id="blog-app">
-    <template>
-        <style>
-             :host {
-                display: block;
-            }
-        </style>
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+    </style>
 
-        <app-location route="{{route}}" use-hash-as-path></app-location>
-        <app-route route="[[route]]" pattern="/:page" data="{{data}}" tail="{{tail}}" active="{{active}}"></app-route>
-        <a href="#/home">Home</a>
-        <iron-pages selected="[[data.page]]" attr-for-selected="data-page">
-            <div data-page="home">
-                <blog-home></blog-home>
-            </div>
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    <app-route route="[[route]]" pattern="/:page" data="{{pages}}"></app-route>
+    <app-route route="[[route]]" pattern="/post/:post" data="{{posts}}"></app-route>
+    <a href="#/home">Home</a>
+    <iron-pages selected="[[pages.page]]" attr-for-selected="data-page">
+      <div data-page="home">
+        <blog-home></blog-home>
+      </div>
 
-            <div data-page$="[[data.page]]">
-                <blog-post page="[[data.page]]"></blog-post>
-            </div>
-        </iron-pages>
-    </template>
+      <div data-page="post">
+        <blog-post page="[[posts.post]]"></blog-post>
+      </div>
+    </iron-pages>
+  </template>
 
-    <script>
-        (function () {
-            'use strict';
-            Polymer({
-                is: 'blog-app',
-                attached: function() {
-                    if (this.route.path === '') {
-                        this.set('route.path', '/home');
-                    }
-                },
-                properties: {
-                    data: {
-                        type: Object
-                    },
-                    tail: {
-                        type: Object
-                    },
-                    active: {
-                        type: Boolean
-                    }
-                }
-            });
-        })();
-    </script>
+  <script>
+    (function () {
+      'use strict';
+      Polymer({
+        is: 'blog-app',
+        attached: function () {
+          if (this.route.path === '') {
+            this.set('route.path', '/home');
+          }
+        },
+        properties: {
+          route: {
+            type: Object
+          },
+          pages: {
+            type: Object
+          },
+          posts: {
+            type: Boolean
+          }
+        }
+      });
+    })();
+  </script>
 </dom-module>

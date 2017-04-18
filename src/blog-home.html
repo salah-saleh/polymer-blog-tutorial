@@ -8,17 +8,16 @@
       }
     </style>
 
-    <iron-ajax auto url="/data/meta.json" handle-as="json" last-response="{{posts}}" debounce-duration="300"
-      loading="{{loading}}">
+    <iron-ajax auto url="/posts/posts.json" handle-as="json" last-response="{{posts}}" debounce-duration="300" loading="{{loading}}">
     </iron-ajax>
-    <div>This is the Home Page. List Blog Posts Meta Info Here.</div>
+    <div>This is the Home Page. List Blog Posts Here.</div>
     <div hidden$="[[!loading]]">Loading ...</div>
     <template is="dom-repeat" items="[[posts]]" as="post">
-      <div><a href$="[[_url(post.name)]]">[[post.name]]</a></div>
+      <div><a href$="[[_url(post.url)]]">[[post.title]]</a></div>
       <div>[[post.excerpt]]</div>
       <div>[[post.date]]</div>
       <div><span>Categories: </span><span>[[post.categories]]</span></div>
-      <div>--------------------------------------------</div>
+      <div><span>Tags: </span><span>[[post.tags]]</span></div>
     </template>
   </template>
 
@@ -35,8 +34,8 @@
             type: Boolean
           }
         },
-        _url: function(name) {
-          return ' #/' + name;
+        _url: function (url) {
+          return ' #/post/' + url;
         }
       });
     })();

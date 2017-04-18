@@ -1,0 +1,15 @@
+[{
+  "url": "Post-1",
+  "title": "Post 1 Title",
+  "excerpt": "This the excerpt of post 1",
+  "date": "2017-04-09",
+  "categories": ["c1", "c2"],
+  "tags": ["t1"]
+}, {
+  "url": "Post-2",
+  "title": "Post 2 Title",
+  "excerpt": "This the excerpt of post 2",
+  "date": "2017-04-10",
+  "categories": ["c1"],
+  "tags": ["t1", "t2"]
+}]
