@@ -2,15 +2,14 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="./styles/app-styles.html">
 <link rel="import" href="./blog-post.html">
 <link rel="import" href="./blog-home.html">
 
 <dom-module id="blog-app">
   <template>
-    <style>
-       :host {
-        display: block;
-      }
+    <style include="app-styles">
+
     </style>
 
     <app-location route="{{route}}" use-hash-as-path></app-location>

@@ -2,17 +2,18 @@
 <link rel="import" href="../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="./disqus-comments.html">
+<link rel="import" href="./styles/post-styles.html">
 
 <dom-module id="blog-post">
   <template>
-    <style>
-       :host {
-        display: block;
-      }
+    <style include="post-styles">
+
     </style>
+
     <iron-ajax id="ajax" auto url="[[_post(page)]]" handle-as="text" last-response="{{post}}" debounce-duration="30" loading="{{loading}}"></iron-ajax>
     <div hidden$="[[!loading]]">Loading ...</div>
 
+    <div>[[title]]</div>
     <marked-element hidden$="[[loading]]" markdown="[[post]]">
       <div id="md" class="markdown-html"></div>
     </marked-element>

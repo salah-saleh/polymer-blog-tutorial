@@ -1,11 +1,11 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="./styles/home-styles.html">
+
 <dom-module id="blog-home">
   <template>
-    <style>
-       :host {
-        display: block;
-      }
+    <style include="home-styles">
+
     </style>
 
     <iron-ajax auto url="/posts/posts.json" handle-as="json" last-response="{{posts}}" debounce-duration="300" loading="{{loading}}">
