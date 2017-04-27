@@ -5,7 +5,10 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-pages": "PolymerElements/iron-pages#^1.0.8",
-    "app-route": "PolymerElements/app-route#^0.9.3"
+    "app-route": "PolymerElements/app-route#^0.9.3",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7",
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.11",
+    "iron-media-query": "PolymerElements/iron-media-query#^1.0.8"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

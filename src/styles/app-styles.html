@@ -5,8 +5,21 @@
     <style>
        :host {
         display: block;
-        min-height: 100vh;
-        background-color: lightgray;
+        --primary-color: yellow;
+      }
+
+      paper-drawer-panel {
+        --paper-drawer-panel-main-container: {
+          background-color: green;
+        }
+        ;
+      }
+
+      paper-drawer-panel {
+        --paper-drawer-panel-drawer-container: {
+          background-color: red;
+        }
+        ;
       }
     </style>
   </template>
