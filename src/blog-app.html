@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
@@ -30,10 +31,17 @@
         </paper-toolbar>
         <div> Drawer content... </div>
       </paper-header-panel>
-      <paper-header-panel mode="seamed" main>
+      <paper-header-panel mode="scroll" main>
         <paper-toolbar>
-          <paper-icon-button id="menuButton" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <a href="#/home">Home</a>
+          <div style="width:100%" class="layout horizontal center">
+            <paper-icon-button id="menuButton" icon="menu" paper-drawer-toggle></paper-icon-button>
+            <a href="#/home" class="layout horizontal center">
+              <iron-icon id="logo" src="/res/p-logo.png"></iron-icon>
+              <div id="logo-title">Polymer Project</div>
+            </a>
+            <div class="flex"></div>
+            <paper-icon-button id="search" icon="search"></paper-icon-button>
+          </div>
         </paper-toolbar>
         <iron-pages selected="[[pages.page]]" attr-for-selected="data-page">
           <div data-page="home">

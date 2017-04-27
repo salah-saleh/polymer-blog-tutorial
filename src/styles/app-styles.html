@@ -1,11 +1,56 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="app-styles">
   <template>
+    <style is="custom-style" include="iron-flex"></style>
     <style>
+      /*https://github.com/PolymerElements/paper-styles/blob/master/default-theme.html*/
+
+       :root {
+        --primary-text-color: black;
+        --primary-background-color: white;
+        --primary-color: white;
+        -webkit-font-smoothing: antialiased;
+        margin: 0px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: 300;
+      }
+
        :host {
         display: block;
-        --primary-color: yellow;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      p,
+      div,
+      span,
+      a {
+        color: var(--primary-text-color);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      paper-toolbar {
+        --paper-toolbar-sm-height: 64px;
+        --paper-toolbar-height: 64px;
+      }
+
+      #logo {
+        --iron-icon-height: 24px;
+        --iron-icon-width: 34.5px;
+      }
+
+      #logo-title {
+        font-size: 20px;
+        font-weight: 400;
+        margin-left: 10px;
       }
 
       paper-drawer-panel {
